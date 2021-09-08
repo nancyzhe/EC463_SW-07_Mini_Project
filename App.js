@@ -6,7 +6,10 @@ const { width } = Dimensions.get('window');
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
-  const [scanned, setScanned] = useState(false);
+    const [scanned, setScanned] = useState(false);
+    const web_head = 'https://api.nal.usda.gov/fdc/v1/food/';
+    const web_tail = '?api_key=DEMO_KEY';
+    var temp;
 
   useEffect(() => {
     (async () => {
@@ -16,16 +19,29 @@ export default function App() {
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-  };
+      setScanned(true);
+      alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+      temp = web_head + data + web_tail; //create url for api and save into variable
+      console.log(temp);//log url onto console
+    }
+    /*var communicate_api = (link) => {
+        json = fetch(temp, method: 'GET')
+            .then((response) => response.json())
+            .then((json)) ==> {
+                return json.
+            }
+
+    }*/
+
+    
 
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
   }
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
-  }
+}
+
 
   return (
       <View style={styles.container}>
@@ -44,7 +60,7 @@ export default function App() {
           </View>
           <View style={styles.layerBottom}/>
          </BarCodeScanner>
-         {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
+          {scanned && <Button title={'Tap to Scan Again'} onPress={() => { setScanned(false) }} />}
         </View>
     );
 }
