@@ -1,4 +1,4 @@
-# EC643: SW Mini Project
+# EC463: SW Mini Project
 **Team: SW-07**
 
 
