@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Dimensions, StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect, Component } from 'react';
+import { Button, Dimensions, StyleSheet, Text, View, Alert } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+
 
 const { width } = Dimensions.get('window');
 
@@ -16,9 +17,17 @@ export default function App() {
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    Alert.alert(
+      'Item Scanned',
+      "Bar code with type ${type} and data ${data} has been scanned!",
+      [
+        {text: 'Save', onPress: () => setScanned(false), style: 'cancel'},
+        {text: 'Discard', onPress: () => setScanned(false), style: 'cancel'},
+      ],
+      { cancelable: false }
+    )   
   };
+
 
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
@@ -28,6 +37,7 @@ export default function App() {
   }
 
   return (
+    <>
       <View style={styles.container}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
@@ -44,8 +54,16 @@ export default function App() {
           </View>
           <View style={styles.layerBottom}/>
          </BarCodeScanner>
-         {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
         </View>
+      <View style={{ flexDirection: "row" }}>
+        <View style={styles.buttonStyle}>
+          <Button title={'History'} />
+      </View>
+      <View style={styles.buttonStyle}>
+          <Button title={"Scan"}/>
+      </View>
+  </View>
+  </>
     );
 }
 
@@ -69,6 +87,10 @@ const styles = StyleSheet.create({
   layerCenter: {
     flex: 1,
     flexDirection: 'row'
+  },
+  buttonStyle: {
+    flex: 1,
+    marginBottom: "3%"
   },
   layerLeft: {
     flex: 1,
