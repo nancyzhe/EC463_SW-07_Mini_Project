@@ -1,7 +1,8 @@
 import React, { useState, useEffect, Component } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { Button, Dimensions, StyleSheet, Text, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Alert, Button, Dimensions, StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 //import auth from '@react-native-firebase/auth';
 //import firebase from 'firebase/app'
@@ -10,6 +11,7 @@ import { getAuth, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
 import { GoogleAuthProvider } from "firebase/auth";
 import * as Google from 'expo-google-app-auth';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 //import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
@@ -30,7 +32,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
+const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 
 
@@ -131,18 +134,17 @@ function MyPage() {
     }
 
 
+const web_head = 'https://api.nal.usda.gov/fdc/v1/foods/search?query=';
+const web_tail = '&api_key=nsiOkpSeckDP6A4BbOmqR4ePokILvASGNz57sKIQ';
+let temp = '';
 
-
-
-
-const Tab = createBottomTabNavigator();
-
-function ScanPage() {
+function ScanPage({ navigation }) {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
-    const web_head = 'https://api.nal.usda.gov/fdc/v1/food/';
-    const web_tail = '?api_key=DEMO_KEY';
-    var temp;
+
+    
+    
+    
 
     useEffect(() => {
         (async () => {
@@ -151,20 +153,20 @@ function ScanPage() {
         })();
     }, []);
 
+    
+
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-        temp = web_head + data + web_tail; //create url for api and save into variable
-        console.log(temp);//log url onto console
+        temp = web_head + data.substring(1) + web_tail; //create url for api and save into variable
+        return (
+            Alert.alert(
+                'Scanned!',
+                `Bar code with type ${type} and data ${data} has been scanned!`,
+                )
+        );
+        
     }
-    /*var communicate_api = (link) => {
-        json = fetch(temp, method: 'GET')
-            .then((response) => response.json())
-            .then((json)) ==> {
-                return json.
-            }
-
-    }*/
+    
 
 
 
@@ -213,7 +215,10 @@ function ScanPage() {
         },
     });
 
+    
+
     return (
+        
         <View style={styles.container}>
             <BarCodeScanner
                 onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
@@ -231,10 +236,63 @@ function ScanPage() {
                 <View style={styles.layerBottom} />
             </BarCodeScanner>
             {scanned && <Button title={'Tap to Scan Again'} onPress={() => { setScanned(false) }} />}
+            {scanned && <Button title={'Go to Result'} onPress={() => navigation.navigate('Scan Result')} />}
         </View>
     );
     
 }
+
+//
+
+/*function communicate_api(scan_url)  {
+    return fetch(scan_url)
+        .then((response) => response.json())
+        .then((json) => {
+            return json.foods;
+        })
+
+}*/
+
+function ResultPage() {
+    const [data, setData] = useState([]);
+    const [isLoading, setLoading] = useState(true)
+    const url = temp;
+    useEffect(() => {
+        fetch(url).then((response) => response.json())
+            .then((json) => setData(json.foods[0]))
+            .catch((error) => alert(error))
+            .finally(() => setLoading(false));
+    })
+
+    //let food_name = search_result.lowercaseDescription;
+    return (
+        <SafeAreaView>
+            {isLoading ? (
+                <ActivityIndicator />
+            ) : (
+                    <View>
+                        <FlatList
+                            data={data.foodNutrients}
+                            keyExtractor={({ nutrientId }) => nutrientId}
+                            renderItem={({ item }) => (
+                                <Text>
+                                    {item.nutrientName}
+                                    {item.value}
+                                    {item.unitName}
+                                </Text>
+                            )}
+                        />
+                    </View>
+                )}
+        </SafeAreaView>
+    );
+}
+
+/*
+ * 
+ 
+ */
+
 
 function MainPage() {
     return (
@@ -265,14 +323,24 @@ export default function App() {
         }
     });*/
 
-    return (
-        <NavigationContainer>
-            <Tab.Navigator>
+    function HomeTabs() {
+        return (
+            <Tab.Navigator screenOptions={{ headerShown: false }}>
                 <Tab.Screen name='Main' component={MainPage} />
                 <Tab.Screen name='Scan' component={ScanPage} />
                 <Tab.Screen name='Me' component={MyPage} />
             </Tab.Navigator>
+        );
+    }
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="Food Tracker" component={HomeTabs} />
+                <Stack.Screen name="Scan Result" component={ResultPage} />
+            </Stack.Navigator>
         </NavigationContainer>
-    );
+        
+        );
+    
 }
 

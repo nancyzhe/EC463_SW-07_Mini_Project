@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\pages"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\pages\\ScanPage.js",
   "PreviewInSolutionExplorer": false
 }
