@@ -1,22 +1,20 @@
 import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Scanner from './components/Scanner';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
-function SignIn({ navigation }) {
+import Scanner from './screens/Scanner';
+
+function SignIn() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Sign in</Text>
-      <Button
-        title="Start Scanning"
-        onPress={() => navigation.navigate('Scan_BarCode')}
-        />
     </View>
   );
 }
 
-function Scan_BarCode({ navigation }) {
+function ScanPage() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Details Screen</Text>
@@ -24,24 +22,50 @@ function Scan_BarCode({ navigation }) {
   );
 }
 
-const Stack = createNativeStackNavigator();
+function Profile() {
+  return (
+      <View>
+          <Text>Welcome</Text>
+      </View>
+      );
+}
+const Tab = createBottomTabNavigator();
+
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name = "SignIn"
-          component = {SignIn}
-          options={{ title: 'Home' }}
+    <Tab.Navigator>
+        <Tab.Screen 
+          name='Me' 
+          component={Profile} 
+          options={{
+           tabBarIcon: (size) => (
+             <Ionicons name = "ios-person" size = {28}/>
+            ),
+          }}
         />
-        <Stack.Screen
-          name = "Scan_BarCode"
-          component = {Scanner}
-          options={{ title: 'Scan' }}
+        <Tab.Screen 
+          name='Main' 
+          component={SignIn} 
+          options={{
+            tabBarIcon: (size) => (
+              <Ionicons name = "home" size = {30}/>
+            ),
+          }}
         />
-      </Stack.Navigator>
-    </NavigationContainer>
+        <Tab.Screen 
+        name='Scan' 
+        component={Scanner}  
+        options={{
+          tabBarIcon: (size) => (
+            <Ionicons name = "barcode-sharp" size = {30}/>
+          ),
+        }}
+        />
+    </Tab.Navigator>
+</NavigationContainer>
+
   );
 }
 
