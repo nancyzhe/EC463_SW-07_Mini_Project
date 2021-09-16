@@ -1,88 +1,72 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Dimensions, StyleSheet, Text, View } from 'react-native';
-import { BarCodeScanner } from 'expo-barcode-scanner';
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
-const { width } = Dimensions.get('window');
+import Scanner from './screens/Scanner';
 
-export default function App() {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [scanned, setScanned] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  }, []);
-
-  const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-  };
-
-  if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
-
+function SignIn() {
   return (
-      <View style={styles.container}>
-        <BarCodeScanner
-          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-          style={[StyleSheet.absoluteFill, styles.container]}
-        >
-          <View style={styles.layerTop}>
-            <Text style={styles.description}>Scan your barcode</Text>
-          </View>
-          <View style={styles.layerCenter}>
-            <View style={styles.layerLeft}/>
-            <View style={styles.focused}>
-          </View>
-          <View style={styles.layerRight}/>
-          </View>
-          <View style={styles.layerBottom}/>
-         </BarCodeScanner>
-         {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
-        </View>
-    );
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Sign in</Text>
+    </View>
+  );
 }
 
-const opacity = 'rgba(0, 0, 0, .6)';
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: "center",
-  },
-  description: {
-    fontSize: 20,
-    marginTop: "70%",
-    textAlign: "center",
-    color: "white",
-  },
-  layerTop: {
-    flex: 2,
-    backgroundColor: opacity
-  },
-  layerCenter: {
-    flex: 1,
-    flexDirection: 'row'
-  },
-  layerLeft: {
-    flex: 1,
-    backgroundColor: opacity
-  },
-  focused: {
-    flex: 10
-  },
-  layerRight: {
-    flex: 1,
-    backgroundColor: opacity
-  },
-  layerBottom: {
-    flex: 2,
-    backgroundColor: opacity
-  },
-});
+function ScanPage() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+    </View>
+  );
+}
+
+function Profile() {
+  return (
+      <View>
+          <Text>Welcome</Text>
+      </View>
+      );
+}
+const Tab = createBottomTabNavigator();
+
+
+function App() {
+  return (
+    <NavigationContainer>
+    <Tab.Navigator>
+        <Tab.Screen 
+          name='Me' 
+          component={Profile} 
+          options={{
+           tabBarIcon: (size) => (
+             <Ionicons name = "ios-person" size = {28}/>
+            ),
+          }}
+        />
+        <Tab.Screen 
+          name='Main' 
+          component={SignIn} 
+          options={{
+            tabBarIcon: (size) => (
+              <Ionicons name = "home" size = {30}/>
+            ),
+          }}
+        />
+        <Tab.Screen 
+        name='Scan' 
+        component={Scanner}  
+        options={{
+          tabBarIcon: (size) => (
+            <Ionicons name = "barcode-sharp" size = {30}/>
+          ),
+        }}
+        />
+    </Tab.Navigator>
+</NavigationContainer>
+
+  );
+}
+
+export default App;
