@@ -20,6 +20,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 });*/
 
 const firebaseConfig = {
+    apiKey: "apikey",
     authDomain: "barcode-miniproject.firebaseapp.com",
     projectId: "barcode-miniproject",
     storageBucket: "barcode-miniproject.appspot.com",
@@ -134,7 +135,7 @@ function MyPage() {
 
 
 const web_head = 'https://api.nal.usda.gov/fdc/v1/foods/search?query=';
-const web_tail = '&api_key=nsiOkpSeckDP6A4BbOmqR4ePokILvASGNz57sKIQ';
+const web_tail = '&api_key=DEMO_KEY';
 let temp = '';
 
 function ScanPage({ navigation }) {
