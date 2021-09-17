@@ -37,8 +37,8 @@ export default function Dashboard({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>Dashboard</Text>
       <Text style={styles.text}>Hi {firstName}</Text>
+      <Text style={styles.titleText}>Welcome to your Food Tracker! Select Scan on the bottom to start scanning. </Text>
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>Log Out</Text>
       </TouchableOpacity>
@@ -50,28 +50,28 @@ const styles = StyleSheet.create({
   button: {
     width: 150,
     padding: 5,
-    backgroundColor: '#ff9999',
+    backgroundColor: '#ADD8E6',
     borderWidth: 2,
     borderColor: 'white',
-    borderRadius: 15,
-    alignSelf: 'center',
+    borderRadius: 0,
+    marginBottom: '10%'
   },
   buttonText: {
     fontSize:20,
-    color: 'white',
+    color: 'navy',
     fontWeight: 'bold',
     textAlign: 'center',
   },
   container: {
     height: '100%',
     width: '100%',
-    backgroundColor: '#3FC5AB',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 30,
     fontStyle: 'italic',
     marginTop: '2%',
     marginBottom: '10%',
@@ -80,8 +80,9 @@ const styles = StyleSheet.create({
   },
   titleText: {
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: 'bold',
     color: '#2E6194',
+    marginTop: '20%'
   },
 });
