@@ -3,7 +3,7 @@ import "firebase/firestore"
 
 export default apiKeys = {
     firebaseConfig: {
-    apiKey: "APIKEY",
+    apiKey: "AIzaSyDyXuRrPDxYFQEUT4qJDjhM6lzdx3sRnU8",
     authDomain: "barcode-miniproject.firebaseapp.com",
     projectId: "barcode-miniproject",
     storageBucket: "barcode-miniproject.appspot.com",

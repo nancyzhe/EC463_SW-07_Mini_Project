@@ -11,9 +11,9 @@ import SignUp from '../screens/SignUp';
 import SignIn from '../screens/SignIn';
 import LoadingScreen from '../screens/LoadingScreen';
 import Dashboard from '../screens/Dashboard';
-//import ProfileScreen from './screens/ProfileScreen';
 import MainScreen from '../screens/MainScreen';
 import ScanScreen from '../screens/ScanScreen';
+import ResultScreen from '../screens/ResultScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -61,6 +61,7 @@ export default function FinalStackScreen() {
                 <Stack.Screen name='Sign Up' component={SignUp} options={{ headerShown: false }}/>
                 <Stack.Screen name='Sign In' component={SignIn} options={{ headerShown: false }}/>
                 <Stack.Screen name={'Dashboard'} component={HomeTabs}  />
+                <Stack.Screen name={'Result'} component={ResultScreen}  />
             </Stack.Navigator>
             </NavigationContainer>
         );

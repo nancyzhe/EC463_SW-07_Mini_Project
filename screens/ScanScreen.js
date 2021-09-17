@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect, Component } from 'react';
+import { Button, StyleSheet, Text, View, Alert } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 
-function ScanScreen({ navigation }) {
+const web_head = 'https://api.nal.usda.gov/fdc/v1/foods/search?query=';
+const web_tail = '&api_key=nsiOkpSeckDP6A4BbOmqR4ePokILvASGNz57sKIQ';
+let temp = '';
+
+export default function ScanScreen({ navigation }) {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
     
@@ -93,10 +97,10 @@ function ScanScreen({ navigation }) {
                 <View style={styles.layerBottom} />
             </BarCodeScanner>
             {scanned && <Button title={'Tap to Scan Again'} onPress={() => { setScanned(false) }} />}
-            {scanned && <Button title={'Go to Result'} onPress={() => navigation.navigate('Scan Result')} />}
+            {scanned && <Button title={'Go to Result'} onPress={() => navigation.navigate('Result')} />}
         </View>
     );
     
 }
 
-export default ScanScreen;
+export {temp};
