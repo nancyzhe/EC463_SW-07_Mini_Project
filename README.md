@@ -25,31 +25,31 @@
 <a name="how_to_run"></a> 
 #### How to Run: (Assuming that you have Node 12 LTS or greater installed) ####
 
-1. Install Expo CLI command line utility 
+1. Install Expo CLI command line utility. 
     ```
      npm install -g expo-cli
     ```
-2. Install the [Expo Go App](https://expo.dev/client) on your mobile device
+2. Install the [Expo Go App](https://expo.dev/client) on your mobile device.
 
-2. Clone the responsitory using the following command in your terminal
+2. Clone the responsitory using the following command in your terminal.
     ```
     git clone https://github.com/https://github.com/nancyzhe/EC463_SW-07_Mini_Project.git
     ```
-3. Switch into the project directory
+3. Switch into the project directory.
     ```
     cd EC463_SW-07_Mini_Project
     ```
-4. Install the necessary packages
+4. Install the necessary packages.
     ```
     npm install
     ```
-5. Start the project
+5. Start the project.
     ```
     expo start
     ```
-6. Using your phone's camera, scan the QR code provided
+6. Using your phone's camera, scan the QR code provided.
 
-7. Sign-in with an existing account *or* sign-up if you do not have an account (password must be at least six characters)
+7. Sign-in with an existing account *or* sign-up if you do not have an account (password must be at least six characters).
 
 8. Start scanning!
 
@@ -58,6 +58,8 @@
 * Frontend: React Native Expo CLI
 * Backend: NodeJS
 * Sign-in/Sign-up Authentication: Firebase Console
+* Camera/Barcode Scanner: [expo-barcode-scanner](https://docs.expo.dev/versions/latest/sdk/bar-code-scanner/)
+
 
 <a name="testing"></a> 
 #### Testing: ####
