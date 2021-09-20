@@ -72,4 +72,13 @@
 
 <a name="testing"></a> 
 #### Testing: ####
-
+1. Started with enabling barcode scanning functionality
+[Camera Test](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera_test.JPG)
+[Camera Test2](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera2.JPG)
+2. Then we discussed and tried to implement a double-button design on the pop-up alert
+[Double Button Test](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/double_button_test.JPG)
+3. At the same time, we implemented a better UI design by using Tab navigator
+[Tab Test](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack1.PNG)
+[Tab Test2](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack2.PNG)
+4. We also uses nested Stack navigator inside tabs. At this time, we also implemented FDC API functionality
+[API & Stack Test](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/FDC_API.PNG)
