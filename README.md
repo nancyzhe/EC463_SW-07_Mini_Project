@@ -13,6 +13,7 @@
 * [How to Run](#how_to_run)
 * [Design Decisions](#design_decisions)
 * [Testing](#testing)
+* [Final Designs](#final_designs)
 
 
 <a name="projectoverview"></a> 
@@ -27,7 +28,7 @@
 
 <a name="projectarchitecture"></a> 
 #### Project Architecture: ####
-![Project Architecture](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/barcode%20app%20structure.png)
+![Project Architecture](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/barcode%20app%20structure.png)
 
 
 
@@ -73,18 +74,21 @@
 <a name="testing"></a> 
 #### Testing: ####
 1. Started with enabling barcode scanning functionality
-![Camera Test](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera_test.JPG)
-![Camera Test2](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera2.JPG)
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera_test.JPG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera2.JPG" width="200" height="400">
 
 2. Then we discussed and tried to implement a double-button design on the pop-up alert
-![Double Button Test](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/double_button_test.JPG)
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/double_button_test.JPG" width="200" height="400">
 
 3. At the same time, we implemented a better UI design by using Tab navigator
-![Tab Test](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack1.PNG)
-![Tab Test2](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack2.PNG)
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack1.PNG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack2.PNG" width="200" height="400">
 
 4. We also uses nested Stack navigator inside tabs. At this time, we also implemented FDC API functionality
-![API & Stack Test](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/FDC_API.PNG)
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/FDC_API.PNG" width="200" height="400">
 
 5. While testing, we had an common error due to large amount of API calls
-![API Error](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/unknown_error.PNG)
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/unknown_error.PNG" width="200" height="400">
+
+<a name="final_designs"></a> 
+#### Final Designs: ####
