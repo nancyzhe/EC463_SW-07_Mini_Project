@@ -88,7 +88,7 @@
 </p>
 
 4. We also uses nested Stack navigator inside tabs. At this time, we also implemented FDC API functionality
-<img src=""https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/FDC_API.PNG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/FDC_API.PNG" width="200" height="400">
 
 5. While testing, we had an common error due to large amount of API calls
 <img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/unknown_error.PNG" width="200" height="400">
