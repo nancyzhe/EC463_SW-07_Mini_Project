@@ -19,17 +19,25 @@ export default function ResultScreen() {
 
     const db = firebase.firestore();
     const currentUser = firebase.auth().currentUser;
-    if (setLoading === false) { // if Data is loaded
+
+    
+
+    if (setLoading == false) { // if Data is loaded
         let food_name = data.description; //save food name into variable "food_name"
         var length = Object.keys(data.foodNutrients).length;// getting the json array length for nutrient array
+        let iterator = data.foodNutrients;
+        
         for (let i = 0; i < length; i++) { // looping through all nutrients
             db.collection('users')
                 .doc(currentUser.uid)
-                .collection(food_name)//creating a collection under the current user uid and name it the food's name
-                .doc(data.foodNutrients[i].nutrientName) // for each nutrient, create a doc with the name of the nutrient
+                .collection('history')
+                .doc(food_name)
                 .set({
-                    value: data.foodNutrients[i].value, // set value
-                    unit: data.foodNutrients[i].unitName, //set unit
+                    name: iterator[i].nutrientName,
+                    info: { // nested array
+                        value: iterator[i].value,
+                        unit: iterator[i].unitName,
+                    }
                 });
         }
     }
@@ -40,13 +48,14 @@ export default function ResultScreen() {
                 <ActivityIndicator />
             ) : (
                     <View>
+                        <Text> {data.description} </Text>
                         <FlatList
                             data={data.foodNutrients}
                             keyExtractor={({ nutrientId }) => nutrientId}
                             renderItem={({ item }) => (
                                 <Text>
-                                    {item.nutrientName}
-                                    {item.value}
+                                    {item.nutrientName} 
+                                    {item.value} 
                                     {item.unitName}
                                 </Text>
                             )}
