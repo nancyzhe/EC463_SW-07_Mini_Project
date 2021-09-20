@@ -9,6 +9,7 @@
 ### Table of Contents:
 
 * [Project Overview](#projectoverview)
+* [Project Architecture](projectarchitecture)
 * [How to Run](#how_to_run)
 * [Design Decisions](#design_decisions)
 * [Testing](#testing)
@@ -20,6 +21,14 @@
 * Complete signin, signup, and logout functionality.
 * Designed with REACT Native to offer a seamless transition from screen to screen.
 * Utilizes the FDA API which returns details on a particular food.
+
+
+
+
+<a name="projectarchitecture"></a> 
+#### Project Architecture: ####
+![Project Architecture](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/barcode%20app%20structure.png)
+
 
 
 <a name="how_to_run"></a> 
