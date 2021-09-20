@@ -23,14 +23,9 @@
 * Designed with REACT Native to offer a seamless transition from screen to screen.
 * Utilizes the FDA API which returns details on a particular food.
 
-
-
-
 <a name="projectarchitecture"></a> 
 #### Project Architecture: ####
 ![Project Architecture](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/barcode%20app%20structure.png)
-
-
 
 <a name="how_to_run"></a> 
 #### How to Run: (Assuming that you have Node 12 LTS or greater installed) ####
@@ -74,15 +69,19 @@
 <a name="testing"></a> 
 #### Testing: ####
 1. Started with enabling barcode scanning functionality
+<p float="left">
 <img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera_test.JPG" width="200" height="400">
 <img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera2.JPG" width="200" height="400">
+</p>
 
 2. Then we discussed and tried to implement a double-button design on the pop-up alert
 <img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/double_button_test.JPG" width="200" height="400">
 
 3. At the same time, we implemented a better UI design by using Tab navigator
+<p float="left">
 <img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack1.PNG" width="200" height="400">
 <img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack2.PNG" width="200" height="400">
+</p>
 
 4. We also uses nested Stack navigator inside tabs. At this time, we also implemented FDC API functionality
 <img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/FDC_API.PNG" width="200" height="400">
