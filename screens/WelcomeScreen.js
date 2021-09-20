@@ -1,4 +1,4 @@
-import {ImageBackground, StyleSheet, View, Text} from 'react-native';
+import {ImageBackground, StyleSheet, View, Text, Image} from 'react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -8,12 +8,15 @@ export default function WelcomeScreen ({navigation}) {
       style={styles.background}
       source={require('../assets/background.jpg')}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Food Tracker</Text>
+        <Text style={styles.title}>Welcome to Your Food Tracker</Text>
       </View>
+      <Image
+      styles={styles.logo}
+      source={require('../images/logo.png')}>
+      </Image>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Sign Up')} >
         <Text style={styles.buttonText}>Sign Up</Text>
        </TouchableOpacity>
-      <Text style={styles.inlineText}>Already have an account?</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Sign In')}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
@@ -29,12 +32,16 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 200,
-    borderRadius: 15,
     borderWidth: 3,
     borderColor: 'white',
     backgroundColor: '#ADD8E6',
     padding: 5,
     margin: '2%'
+  },
+  logo: {
+    width: 20,
+    height: 20,
+    resizeMode: 'contain' 
   },
   buttonText: {
     fontSize: 20,
@@ -57,6 +64,6 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     position: 'absolute',
-    top: 170,
+    top: 200,
   },
 });
