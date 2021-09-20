@@ -1,6 +1,8 @@
 # EC463: SW Mini Project
 **Team: SW-07**
 
+Project Demo Video Linked Here
+
 
 ### Team Members:
 * **Haoxuan Li** - [HaoxuanLi123](https://github.com/HaoxuanLi123)
@@ -70,24 +72,30 @@
 #### Testing: ####
 1. Started with enabling barcode scanning functionality
 <p float="left">
-<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera_test.JPG" width="200" height="400">
-<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/camera2.JPG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/camera_test.JPG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/camera2.JPG" width="200" height="400">
 </p>
 
 2. Then we discussed and tried to implement a double-button design on the pop-up alert
-<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/double_button_test.JPG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/double_button_test.JPG" width="200" height="400">
 
 3. At the same time, we implemented a better UI design by using Tab navigator
 <p float="left">
-<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack1.PNG" width="200" height="400">
-<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/Stack2.PNG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/Stack1.PNG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/Stack2.PNG" width="200" height="400">
 </p>
 
 4. We also uses nested Stack navigator inside tabs. At this time, we also implemented FDC API functionality
-<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/FDC_API.PNG" width="200" height="400">
+<img src=""https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/FDC_API.PNG" width="200" height="400">
 
 5. While testing, we had an common error due to large amount of API calls
-<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/unknown_error.PNG" width="200" height="400">
+<img src="https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/unknown_error.PNG" width="200" height="400">
 
 <a name="final_designs"></a> 
 #### Final Designs: ####
+![Final Screen 1](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/final-screen1.png)
+![Final Screen 2](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/final-screen2.png)
+![Final Screen 3](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/final-screen3.png)                       
+                                                                                                                     
+                                                                                                                           
+           
