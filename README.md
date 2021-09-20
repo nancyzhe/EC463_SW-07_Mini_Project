@@ -1,8 +1,9 @@
 # EC463: SW Mini Project
 **Team: SW-07**
 
-Project Demo Video Linked Here
-
+### [Project Demo Video Linked Here](https://youtu.be/Z3gRVXhhZWk) ###
+* For bugs and issues, see our [Github Issues](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/issues)
+* For information on ur REST APIS, see our [Github Wiki](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/wiki)
 
 ### Team Members:
 * **Haoxuan Li** - [HaoxuanLi123](https://github.com/HaoxuanLi123)
@@ -29,6 +30,7 @@ Project Demo Video Linked Here
 #### Project Architecture: ####
 ![Project Architecture](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/blob/main/images/barcode%20app%20structure.png)
 
+                                                                                                                                  
 <a name="how_to_run"></a> 
 #### How to Run: (Assuming that you have Node 12 LTS or greater installed) ####
 
