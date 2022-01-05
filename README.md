@@ -3,7 +3,6 @@
 
 ### [Project Demo Video Linked Here](https://youtu.be/Z3gRVXhhZWk) ###
 * For bugs and issues, see our [Github Issues](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/issues)
-* For information on ur REST APIS, see our [Github Wiki](https://github.com/nancyzhe/EC463_SW-07_Mini_Project/wiki)
 
 ### Team Members:
 * **Haoxuan Li** - [HaoxuanLi123](https://github.com/HaoxuanLi123)
